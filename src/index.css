@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+/* 1. Theme Configuration (Replaces tailwind.config.js) */
+@theme {
+  --font-sans: system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Custom Surface Colors */
+  --color-surface-base: #0D0F12;
+  --color-surface-border: #262B35;
+  --color-surface-hover: #374151;
+
+  /* Severity Palette */
+  --color-severity-critical: #F87171;
+  --color-severity-high: #FB923C;
+  --color-severity-medium: #FBBF24;
+  --color-severity-low: #4ADE80;
+  --color-severity-none: #6B7280;
+}
+
+/* 2. Global Base Styles */
+@layer base {
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+
+  * {
+    @apply border-surface-border;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-surface-base text-[#E2E8F0] antialiased font-sans;
+  }
+
+  /* Scrollbar - Optimized for v4 */
+  ::-webkit-scrollbar {
+    @apply w-1.5 h-1.5;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-surface-base;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-border rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-surface-hover;
+  }
+}
+
+/* 3. Custom Functional Utilities */
+@layer utilities {
+  .bg-severity-critical { background-color: color-mix(in srgb, var(--color-severity-critical) 12%, transparent); }
+  .bg-severity-high     { background-color: color-mix(in srgb, var(--color-severity-high) 12%, transparent); }
+  .bg-severity-medium   { background-color: color-mix(in srgb, var(--color-severity-medium) 12%, transparent); }
+  .bg-severity-low      { background-color: color-mix(in srgb, var(--color-severity-low) 12%, transparent); }
+}

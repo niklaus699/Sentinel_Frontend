@@ -65,25 +65,25 @@ export function AssetDetailHeader({ asset }: Props) {
           </div>
         </div>
 
-        <div className="flex items-center gap-4 flex-shrink-0">
-          <div className="text-right">
-            <p className="text-xs text-slate-500 mb-0.5">Risk score</p>
-            <RiskScore score={asset.risk_score} size="lg" animated={isUpdating} />
-          </div>
-          <button
-            onClick={() => triggerScan.mutate(asset.id)}
-            disabled={triggerScan.isPending}
-            className={cn(
-              'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs',
-              'border border-surface-border bg-surface-overlay text-slate-400',
-              'hover:text-slate-200 hover:border-slate-500 transition-colors',
-              'disabled:opacity-50 disabled:cursor-not-allowed'
-            )}
-          >
-            <RefreshCw size={12} className={triggerScan.isPending ? 'animate-spin' : ''} />
-            {triggerScan.isPending ? 'Queued…' : 'Re-scan'}
-          </button>
-        </div>
+<div className="flex flex-col items-end gap-2 flex-shrink-0">
+  <div className="text-right">
+    <p className="text-xs text-slate-500 mb-0.5">Risk score</p>
+    <RiskScore score={asset.risk_score} size="lg" animated={isUpdating} />
+  </div>
+  <button
+    onClick={() => triggerScan.mutate(asset.id)}
+    disabled={triggerScan.isPending}
+    className={cn(
+      'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs',
+      'border border-surface-border bg-surface-overlay text-slate-400',
+      'hover:text-slate-200 hover:border-slate-500 transition-colors',
+      'disabled:opacity-50 disabled:cursor-not-allowed'
+    )}
+  >
+    <RefreshCw size={12} className={triggerScan.isPending ? 'animate-spin' : ''} />
+    {triggerScan.isPending ? 'Queued…' : 'Re-scan'}
+  </button>
+</div>
       </div>
     </motion.div>
   )

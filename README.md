@@ -1,73 +1,25 @@
-# React + TypeScript + Vite
+# 🛡️ AETHERIS SENTINEL
+### Next-Gen Vulnerability Management & Threat Intelligence Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aetheris Sentinel is a high-performance, enterprise-grade security orchestration platform designed to streamline the lifecycle of vulnerability management. Built with a focus on speed, scalability, and precision, it transforms raw security data into actionable intelligence through an automated asynchronous pipeline.
 
-Currently, two official plugins are available:
+Sentinel provides security teams with a unified "single pane of glass" to ingest, analyze, and remediate security findings across multi-tenant environments. By leveraging a distributed architecture, it ensures low-latency processing and real-time risk visibility, making it an essential tool for modern DevSecOps workflows.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🚀 Key Capabilities
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* **Automated Ingestion Pipeline:** High-throughput asynchronous processing of vulnerability data, ensuring zero bottlenecks during large-scale scans.
+* **Intelligent Risk Scoring:** Dynamic trending and prioritization logic that calculates risk based on severity, asset criticality, and historical data.
+* **Multi-Tenant RBAC:** Granular access control designed for complex organizational structures or MSP environments.
+* **Compliance-Ready Reporting:** Instant generation of executive-level PDF reports aligned with industry standards (SOC2, ISO 27001).
+* **Real-Time Intelligence:** Live dashboarding of the current threat landscape and remediation progress.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🏗️ Architecture Overview
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+The platform utilizes a distributed cloud topology:
+* **Backend & Workers:** Hosted on Railway for robust, scalable execution of ingestion logic.
+* **Frontend:** Vercel-deployed edge-optimized interface for a seamless user experience.
+* **Data Layer:** Supabase (PostgreSQL) for relational integrity and Upstash (Redis) for high-speed caching and rate limiting.

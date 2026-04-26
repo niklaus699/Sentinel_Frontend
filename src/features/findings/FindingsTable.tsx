@@ -159,8 +159,16 @@ export function FindingsTable() {
         </table>
       </div>
 
-      <div className="mt-3 text-xs text-slate-500">
-        {data?.count ?? 0} findings total
+      <div className="mt-3 flex items-center justify-between">
+        <span className="text-xs text-slate-500">
+          {data?.count ?? findings.length} finding{(data?.count ?? findings.length) !== 1 ? 's' : ''}
+          {Object.keys(filters).length > 0 && ' matching filters'}
+        </span>
+        {Object.keys(filters).length > 0 && (
+          <span className="text-xs text-slate-600">
+            {findings.length} shown
+          </span>
+        )}
       </div>
     </Card>
   )

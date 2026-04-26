@@ -22,7 +22,8 @@ export function Card({ children, className, glow = false }: CardProps) {
 
 export function CardHeader({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
-    <div className={cn('mb-4 flex items-center justify-between', className)}>
+    <div className={cn('flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4',
+      className)}>
       {children}
     </div>
   )

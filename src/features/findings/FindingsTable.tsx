@@ -36,10 +36,14 @@ export function FindingsTable() {
     <Card>
       <CardHeader>
         <CardTitle>Findings</CardTitle>
-        <div className="flex items-center gap-2">
-          <Filter size={13} className="text-slate-500" />
+
+        {/* Desktop: single row. Mobile: title is above (CardHeader handles that),
+            filters stack into a wrap row */}
+        <div className="flex flex-wrap items-center gap-2">
+          <Filter size={13} className="text-slate-500 flex-shrink-0" />
+
           <select
-            className="text-xs bg-surface-overlay border border-surface-border rounded px-2 py-1 text-slate-300"
+            className="text-xs bg-surface-overlay border border-surface-border rounded px-1.5 py-1 text-slate-300 min-w-0"
             value={filters.severity ?? ''}
             onChange={(e) => setFilters((f) => ({ ...f, severity: e.target.value || undefined }))}
           >
@@ -50,7 +54,7 @@ export function FindingsTable() {
           </select>
 
           <select
-            className="text-xs bg-surface-overlay border border-surface-border rounded px-2 py-1 text-slate-300"
+            className="text-xs bg-surface-overlay border border-surface-border rounded px-1.5 py-1 text-slate-300 min-w-0"
             value={filters.status ?? ''}
             onChange={(e) => setFilters((f) => ({ ...f, status: e.target.value || undefined }))}
           >
@@ -63,7 +67,7 @@ export function FindingsTable() {
           {Object.keys(filters).length > 0 && (
             <button
               onClick={() => setFilters({})}
-              className="text-xs text-slate-500 hover:text-slate-300 transition-colors"
+              className="text-xs text-slate-500 hover:text-slate-300 transition-colors flex-shrink-0"
             >
               Clear
             </button>

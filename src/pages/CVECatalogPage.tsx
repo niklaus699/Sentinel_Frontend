@@ -197,7 +197,7 @@ export function CVECatalogPage() {
         </div>
       </Card>
 
-      <div className="overflow-hidden rounded-lg border border-surface-border">
+      <div className="overflow-x-auto md:overflow-hidden rounded-lg border border-surface-border">
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-surface-border bg-surface-overlay">

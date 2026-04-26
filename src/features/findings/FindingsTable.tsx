@@ -71,7 +71,7 @@ export function FindingsTable() {
         </div>
       </CardHeader>
 
-      <div className="rounded border border-surface-border overflow-hidden">
+      <div className="overflow-x-auto rounded border border-surface-border md:overflow-hidden">
         <table className="w-full text-sm">
           <thead>
             <tr className="bg-surface-overlay border-b border-surface-border">

@@ -37,7 +37,7 @@ export function AssetTable() {
         </span>
       </div>
 
-      <div className="rounded-lg border border-surface-border overflow-hidden">
+      <div className="overflow-x-auto rounded-lg border border-surface-border md:overflow-hidden">
         <table className="w-full text-sm">
           <thead>
             <tr className="bg-surface-overlay border-b border-surface-border">
